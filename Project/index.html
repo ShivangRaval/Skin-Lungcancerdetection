@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>CancerWise Pro</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <div class="main-container">
+        <div>
+            <div class="head">
+                <div class="header-container">
+                    <div class="heading">
+                        <h1>Cancer-Wise Pro</h1>
+                    </div>
+                    <div class="links">
+                        <div class="about">
+                            <button onclick="directToAboutPage()"><b>About Us</b></button>
+                        </div>
+                        <div class="login">
+                            <button onclick="directToLoginPage()"><b>Login</b></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="content">Our innovative online medical analysis platform allows users to upload images for a comprehensive assessment. Our cutting-edge machine learning model examines the uploaded images to make predictions related to skin and lung cancer. Depending on the prediction, we provide users with relevant information and articles to help them better understand their results. This user-centric approach empowers individuals with knowledge and resources tailored to their specific health needs. Whether it's skin or lung cancer, our platform is designed to facilitate early detection and informed decision-making, ultimately leading to improved health outcomes. Your well-being is our priority, and we're here to provide personalized support every step of the way.</div>
+            </div>
+
+            <div class="diseases">
+                <div class="skin-container">
+                    <div class="skincancer">
+                        <div class="skin-head"><center><h2>Skin Cancer</h2></center></div>
+                        <div class="skin-info">
+                            <center>Click Here For Skin Related Diseases<br><br></center></center>
+                        </div>
+                        <div class="photo">
+                            <img src="../static/images/skin-cancer.jpg" alt="Skin-Cancer Image" width=300 height="168">
+                        </div>
+                        <div class="skin-button">
+                            <center><button onclick="directToSkinPage()"><b>Skin</b></button></center>
+                        </div>
+                    </div>
+                </div>
+                <div class="lung-container">
+                    <div class="lungcancer">
+                        <div class="lung-head"><center><h2>Lung Cancer</h2></center></div>
+                        <div class="lung-info">
+                            <center>Click Here For Skin Related Diseases<br><br></center></center>
+                        </div>
+                        <div class="lung-photo">
+                            <img src="../static/images/lung-cancer.jpg" alt="Lung-Cancer Image">
+                        </div>
+                        <div class="lung-button">
+                            <center><button onclick="directToLungsPage()"><b>Lung</b></button></center>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        function directToLoginPage(){
+            window.location.href = "signup.html";
+        }
+
+        function directToSkinPage(){
+            window.location.href = "skin.html"
+        }
+
+        function directToLungsPage(){
+            window.location.href = "lungs.html"
+        }
+
+        function directToAboutPage(){
+            window.location.href = "about.html"
+        }
+    </script>
+
+</body>
+</html>

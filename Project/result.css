@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+
+body{
+    background-color: #ece3e3;
+    /*font-family: Cambria, serif;*/
+    font-family: 'Lato', sans-serif;
+}
+.heading{
+    display: flex;
+    justify-content: center;
+}
+
+.prediction{
+    font-family: Cambria, serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 22px;
+}
+
+.ws-cont{
+    display: flex;
+    justify-content: center;
+}
+.ws{
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 7px;
+    background-color: rgb(217, 233, 241);
+    width: 700px;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.ws p{
+    font-family: Cambria, serif;
+    padding-left: 30px;
+    display: flex;
+    justify-content: left;
+}
+
+
+.content{
+    text-align: justify;
+    padding: 20px;
+
+}

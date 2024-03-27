@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lung Cancer Prediction Result</title>
+    <link rel="stylesheet" href="../static/css/result.css">
+</head>
+<body>
+<div class="heading">
+    <h1>Lung Cancer Prediction</h1>
+</div>
+<div class="prediction">
+    <h3>Your Lung Cancer Prediction</h3>
+    <p>Our analysis suggests that you may have <mark>{{ class_result }}</mark>.</p>
+</div>
+<div class="ws-cont">
+    <div class="ws">
+        <div class="title">
+            <center><h2>Related Information</h2></center>
+            <p>Here is some important information about {{ class_result }}:</p>
+        </div>
+        <div class="content">
+            {{ content }}
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

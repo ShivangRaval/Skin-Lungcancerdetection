@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            padding: 20px;
+            width: 300px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .form-group input {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+
+        .signup-container {
+            text-align: center;
+        }
+
+        .toggle-button {
+            cursor: pointer;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="login-container">
+        <center><h2>Login</h2></center>
+        <div class="form-group">
+            <center><label for="username">Username</label></center>
+            <center><input type="text" id="username" placeholder="Enter your username"></center>
+        </div>
+        <div class="form-group">
+            <center><label for="password">Password</label></center>
+            <center><input type="password" id="password" placeholder="Enter your password"></center>
+        </div>
+        <div class="form-group">
+            <button id="login-button">Login</button>
+        </div>
+        <div class="signup-container">
+            <span>Don't have an account? <span id="toggle-signup" class="toggle-button">Sign up</span></span>
+        </div>
+    </div>
+
+    <div id="signup-container" style="display: none;">
+        <center><h2>Sign up</h2></center>
+        <div class="form-group">
+            <center><label for="name">Name</label></center>
+            <center><input type="text" id="name" placeholder="Enter your name"></center>
+        </div>
+        <div class="form-group">
+            <center><label for="new-username">Username</label></center>
+            <center><input type="text" id="new-username" placeholder="Choose a username"></center>
+        </div>
+        <div class="form-group">
+            <center><label for="new-password">Password</label></center>
+            <center><input type="password" id="new-password" placeholder="Choose a password"></center>
+        </div>
+        <div class="form-group">
+            <button id="signup-button">Sign up</button>
+        </div>
+        <div class="signup-container">
+            <span>Already have an account? <span id="toggle-login" class="toggle-button">Login</span></span>
+        </div>
+    </div>
+</div>
+
+<script>
+    const loginContainer = document.getElementById("login-container");
+    const signupContainer = document.getElementById("signup-container");
+    const toggleLoginButton = document.getElementById("toggle-login");
+    const toggleSignupButton = document.getElementById("toggle-signup");
+
+    toggleLoginButton.addEventListener("click", () => {
+        loginContainer.style.display = "block";
+        signupContainer.style.display = "none";
+    });
+
+    toggleSignupButton.addEventListener("click", () => {
+        loginContainer.style.display = "none";
+        signupContainer.style.display = "block";
+    });
+
+    let users = [];
+
+    // Function to save user data to local storage
+    function saveUsersToLocalStorage() {
+        localStorage.setItem('users', JSON.stringify(users));
+    }
+
+    // Function to load user data from local storage
+    function loadUsersFromLocalStorage() {
+        const storedUsers = localStorage.getItem('users');
+        if (storedUsers) {
+            users = JSON.parse(storedUsers);
+        }
+    }
+
+    loadUsersFromLocalStorage();
+
+    // Sign-up button click event
+    const signupButton = document.getElementById("signup-button");
+    signupButton.addEventListener("click", () => {
+        const name = document.getElementById("name").value;
+        const newUsername = document.getElementById("new-username").value;
+        const newPassword = document.getElementById("new-password").value;
+
+        // Check if the username is already taken
+        if (users.some(user => user.username === newUsername)) {
+            alert("Username is already taken. Please choose a different one.");
+            return;
+        }
+
+        // Add the user to the array
+        users.push({ name, username: newUsername, password: newPassword });
+        saveUsersToLocalStorage();
+
+        // Display a success message or redirect to the login page
+        alert("Sign-up successful! You can now log in.");
+    });
+
+    // Login button click event
+    const loginButton = document.getElementById("login-button");
+    loginButton.addEventListener("click", () => {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        // Check if the username and password match
+        const user = users.find(u => u.username === username && u.password === password);
+
+        if (user) {
+            alert("Login successful! Welcome, " + user.name);
+        } else {
+            alert("Invalid username or password. Please try again.");
+        }
+    });
+
+
+</script>
+</body>
+</html>
+/

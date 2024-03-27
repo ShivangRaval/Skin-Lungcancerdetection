@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Skin Cancer Analysis</title>
+    <link rel="stylesheet" href="../static/css/skin.css">
+</head>
+<body>
+      <div class="head-container">
+          <center><h1>Skin Cancer Analysis</h1></center>
+      </div>
+      <div class="container">
+        <div class="ml-container">
+            <div class="info">
+                For the analysis of Skin Cancer you need to upload your Skin image similar to as shown below.
+            </div>
+            <div class="img">
+                <img src="../static/images/skin1.jpg" alt="Skin Image" width="230" height="140">
+                <img src="../static/images/skin2.jpg" alt="Skin Image" width="230" height="140">
+            </div>
+            <div class="note">
+                <p>
+                    <b>Note:</b> Our skin cancer prediction project is dedicated to assisting individuals with skin diseases by predicting the type of skin cancer based on uploaded images. It's a valuable tool for those who have concerns about their skin health. However, it's important to note that uploading images of normal, healthy skin may result in random or inconclusive predictions, as our system relies on identifying visual cues associated with skin diseases. We encourage users to utilize our service when they have genuine skin health concerns or symptoms </p>
+            </div>
+        </div>
+        <div class="ws-container">
+            <div class="form-group">
+                <form action="/result.html" method="POST" enctype="multipart/form-data">
+                    <div class="form-input">
+                        <div class="form-text">
+                            <label for="image">
+                                <center><b>Upload your Image:</b></center>
+                            </label>
+                        </div>
+                        <div class="setting">
+                            <div class="form-img">
+                                <label>
+                                    Choose file
+                                    <input type="file" name="image" id="image" accept="image/*">
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="displayImg">
+                            <center><img id="chosen-image" src="../static/images/def-img.png" alt="Selected Image:" width="350px" height="200px"></center>
+                        </div>
+
+                    </div>
+                    <div class="form-submit">
+                        <input type="submit" value="Predict">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+      </div>
+
+      <script>
+          const imageInput = document.getElementById("image");
+          const chosenImage = document.getElementById("chosen-image");
+
+          imageInput.addEventListener("change", function () {
+              const file = imageInput.files[0];
+
+              if (file) {
+                  const reader = new FileReader();
+
+                  reader.onload = function (e) {
+                      chosenImage.src = e.target.result;
+                  };
+
+                  reader.readAsDataURL(file);
+              } else {
+                  chosenImage.src = '../static/images/default.png';
+              }
+          });
+
+
+      </script>
+</body>
+</html>
+

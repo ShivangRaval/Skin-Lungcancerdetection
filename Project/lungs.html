@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lung Cancer Analysis</title>
+    <link rel="stylesheet" href="../static/css/lung.css">
+</head>
+<body>
+<div class="head-container">
+    <center><h1>Lung Cancer Analysis</h1></center>
+</div>
+<div class="container">
+    <div class="ml-container">
+        <div class="info">
+            For the analysis of Lung Cancer you need to upload your Skin image similar to as shown below.
+        </div>
+        <div class="img">
+            <img src="../static/images/lung1.jpeg" alt="Lung Image" width="230" height="140">
+            <img src="../static/images/lung2.jpg" alt="Lung Image" width="230" height="140">
+        </div>
+        <div class="note">
+            <p><b>Note</b> : Our Lung Cancer Prediction Project is committed to aiding individuals in the early detection and classification of lung cancer using H&E (Hematoxylin and Eosin) staining images. This powerful technique provides critical insights into lung tissue structures, enabling accurate cancer assessment. It serves as a valuable resource for those who suspect lung health issues. However, it's essential to understand that uploading H&E staining images of healthy lung tissue may lead to inconclusive results, as our system relies on recognizing cancer-related visual indicators. We encourage users to utilize our service when genuine concerns or symptoms related to lung health arise.</p>
+
+        </div>
+    </div>
+    <div class="ws-container">
+        <div class="form-group">
+            <form action="result_lungs.html" method="POST" enctype="multipart/form-data">
+                <div class="form-input">
+                    <div class="form-text">
+                        <label for="image">
+                            <center><b>Upload your Image:</b></center>
+                        </label>
+                    </div>
+                    <div class="setting">
+                        <div class="form-img">
+                            <label>
+                                Choose file
+                                <input type="file" name="image" id="image" accept="image/*">
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="displayImg">
+                        <center><img id="chosen-image" src="../static/images/def-img.png" alt="Selected Image:" width="350px" height="200px"></center>
+                    </div>
+
+                </div>
+                <div class="form-submit">
+                    <input type="submit" value="Predict">
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const imageInput = document.getElementById("image");
+    const chosenImage = document.getElementById("chosen-image");
+
+    imageInput.addEventListener("change", function () {
+        const file = imageInput.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                chosenImage.src = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        } else {
+            chosenImage.src = "../static/images/default.png";
+        }
+    });
+
+
+</script>
+</body>
+</html>

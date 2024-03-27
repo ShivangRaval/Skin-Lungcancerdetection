@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+
+body{
+    background-color: #ece3e3;
+    /*font-family: Cambria, serif;*/
+    font-family: 'Lato', sans-serif;
+}
+.main-container {
+    display: flex;
+    justify-content: center;
+    padding-right: 100px;
+}
+
+
+button{
+    margin-top: 25px;
+    color: white;
+    padding-bottom: 1px;
+    font-family: Calibri, serif;
+    background-color: #2c4831;
+    border: 2px #010303 solid;
+    border-radius: 10px;
+    height: 35px;
+    width: 100px;
+    font-size: 16px;
+}
+
+button:hover{
+    background-color: #2ed064;
+    color: black;
+}
+
+.links{
+    display: flex;
+    gap: 30px;
+    padding-left: 100px;
+    margin-right: -110px;
+}
+
+.header-container{
+    display: flex;
+    justify-content: space-around;
+    gap: 200px;
+
+}
+
+.content{
+    font-size: 19px;
+    font-family: "Calibri", serif;
+    /*font-family: 'Lato', sans-serif;*/
+    width: 1120px;
+    padding-top: 20px;
+    padding-left: 125px;
+    text-align: justify;
+}
+
+.diseases{
+    margin-top: 50px;
+    display: flex;
+    gap: 300px;
+    padding-left: 190px;
+}
+.skin-container {
+    background-color: rgb(217, 233, 241);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 7px;
+    padding: 20px;
+    width: 300px;
+
+}
+
+.lung-container {
+    background-color: rgb(217, 233, 241);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 7px;
+    padding: 20px;
+    width: 301px;
+}
+
+
+.skin-button{
+    padding-top: 20px;
+}
+
+.lung-button{
+    padding-top: 20px;
+}
+
+
+
